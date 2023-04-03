@@ -16,22 +16,25 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Build'
+                echo 'BUILD'
+                bat 'mvn clean install -DskipTests=true'
             }
         }
         stage('Test') {
             steps {
-                echo 'Test'
+                echo 'TEST'
+                bat 'mvn test'
             }
         }
         stage('Package') {
             steps {
-                echo 'Package'
+                echo 'PACKAGE'
+                bat 'mvn clean package -DskipTests=true'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploy'
+                echo 'DEPLOY'
             }
         }
     }
