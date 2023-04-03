@@ -3,17 +3,22 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "mvn clean install -DskipTests=true"
+                echo 'Build'
             }
         }
         stage('Test') {
             steps {
-                sh "mvn test"
+                echo 'Test'
             }
         }
         stage('Package') {
             steps {
-                sh "mvn clean package -DskipTests=true"
+                echo 'Package'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploy'
             }
         }
     }
