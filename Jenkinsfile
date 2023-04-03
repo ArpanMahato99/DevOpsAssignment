@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Initialize') {
             steps {
-                sh '''
+                bat '''
                     echo "PATH = ${PATH}"
                     echo "JAVA_HOME" = ${JAVA_HOMEs}
                     echo "MAVEN_HOME = ${MAVEN_HOME}"
