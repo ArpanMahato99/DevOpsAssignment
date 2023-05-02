@@ -9,7 +9,7 @@ class DevOpsAssignmentApplicationTests {
 
 	@Test
 	void contextLoads() {
-		Assertions.assertTure(true);
+		Assertions.assertTrue(true);
 	}
 
 }
