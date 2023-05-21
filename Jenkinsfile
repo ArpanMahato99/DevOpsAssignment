@@ -1,19 +1,40 @@
 pipeline {
     agent any
+    tools {
+        maven 'Maven 3.8'
+        jdk 'jdk 11'
+    }
     stages {
+        stage('Initialize') {
+            steps {
+                bat '''
+                    echo "PATH = ${PATH}"
+                    echo "JAVA_HOME" = ${JAVA_HOMEs}
+                    echo "MAVEN_HOME = ${MAVEN_HOME}"
+                '''
+            }
+        }
         stage('Build') {
             steps {
-                sh "mvn clean install -DskipTests=true"
+                echo 'BUILD'
+                bat 'mvn clean install -DskipTests=true'
             }
         }
         stage('Test') {
             steps {
-                sh "mvn test"
+                echo 'TEST'
+                bat 'mvn test'
             }
         }
         stage('Package') {
             steps {
-                sh "mvn clean package -DskipTests=true"
+                echo 'PACKAGE'
+                bat 'mvn clean package -DskipTests=true'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'DEPLOY'
             }
         }
     }
